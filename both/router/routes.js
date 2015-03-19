@@ -14,3 +14,7 @@ Router.route('/about', {
   name: 'about'
 });
 
+Router.route('/contactus', {
+  name: 'contactus'
+});
+
