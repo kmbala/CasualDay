@@ -1,0 +1,3 @@
+Template.aboutus.rendered = function() {
+
+};
