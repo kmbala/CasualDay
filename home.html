@@ -1,0 +1,37 @@
+<head>
+  <title>Casual Day</title>
+</head>
+
+<body>
+  <div class="container">
+      <header>
+        <h1>Casual Day</h1>
+
+        <label class="hide-finished"><input type="checkbox" checked="{{hideFinished}}">
+        H
+        </label>
+          {{#if currentUser}}
+        <form class="new-clothe" >
+          <input type="text" name="title" placeholder="upload clothes">
+          <input type="submit" value="Submit">
+        </form>
+        {{/if}}
+      </header>
+      <ul>
+        {{#each clothes}}
+          {{> clothe}}
+        {{/each}}
+      </ul>
+      {{> loginButtons}}
+  </div>
+
+</body>
+
+<template name="clothe">
+<li class="{{#if checked}}checked{{/if}}">
+  <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+  <span class="text">{{title}}</span>
+  <button class="delete">Remove</button>
+
+</li>
+</template>

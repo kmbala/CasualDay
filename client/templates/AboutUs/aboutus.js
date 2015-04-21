@@ -1,3 +1,0 @@
-Template.aboutus.rendered = function() {
-
-};

@@ -1,3 +1,0 @@
-Template.contactus.rendered = function() {
-
-};
