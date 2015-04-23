@@ -7,6 +7,6 @@
 meteor-platform
 cryptoquick:stylus-multi
 accounts-password
-accounts-ui
 autopublish
 mrt:bootstrap-3
+accounts-ui

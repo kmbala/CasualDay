@@ -1,8 +1,10 @@
 <head>
   <title>Casual Day</title>
 </head>
+
 <body>
-  <nav class="navbar navbar-inverse">
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -19,16 +21,33 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">             </a></li>
+            <li><a href="#contact">             </a></li>
+            <li></li>
           </ul>
+          <ul class="nav navbar-nav ">
+           {{> loginButtons }} <!-- here -->
+       </ul>
+
         </div>
+
+
   </div><!-- /.container-fluid -->
 </nav>
-  <div class="container">
-      <header>
+<div class="jumbotron">
+      <div class="container">
         <h1>Casual Day</h1>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+  <div class="container1">
+      <header>
+
 
         <label class="hide-finished"><input type="checkbox" checked="{{hideFinished}}">
-        H
+        Hide Descriptions
         </label>
           {{#if currentUser}}
         <form class="new-clothe" >
@@ -42,7 +61,7 @@
           {{> clothe}}
         {{/each}}
       </ul>
-      {{> loginButtons}}
+
   </div>
 
 </body>
