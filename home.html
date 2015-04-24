@@ -20,9 +20,22 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#contact">             </a></li>
-            <li><a href="#contact">             </a></li>
+            <li><a href="#contact"></a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+            <li><a href="#space">  </a></li>
+
             <li></li>
           </ul>
           <ul class="nav navbar-nav ">
@@ -34,22 +47,43 @@
 
   </div><!-- /.container-fluid -->
 </nav>
+<div class="bg"></div>
 <div class="jumbotron">
       <div class="container">
         <h1>Casual Day</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p></p>
+        <p></p>
       </div>
     </div>
-
+    <div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2 class="glyphicon glyphicon-open">Upload</h2>
+      <p>Upload and submit pictures and descriptions of collaborative clothing. </p>
+      <p></p>
+    </div>
+    <div class="col-md-4">
+      <h2 class="glyphicon glyphicon-user">Group</h2>
+      <p>Veiw your groups suggestions or suggest to your group </p>
+      <p></p>
+   </div>
+    <div class="col-md-4">
+      <h2 class="glyphicon glyphicon-envelope">Invite</h2>
+      <p>Invite your community to collaborate at group events.</p>
+      <p></p>
+    </div>
+  </div>
+</div>
+<hr>
   <div class="container1">
       <header>
 
 
-        <label class="hide-finished"><input type="checkbox" checked="{{hideFinished}}">
-        Hide Descriptions
-        </label>
           {{#if currentUser}}
+          <label class="hide-finished"><input type="checkbox" checked="{{hideFinished}}">
+          Hide Descriptions
+          </label>
         <form class="new-clothe" >
           <input type="text" name="title" placeholder="upload clothes">
           <input type="submit" value="Submit">
@@ -63,11 +97,14 @@
       </ul>
 
   </div>
-
+  <hr>
+  <footer>
+          <p>&copy; CasualDay 2015</p>
+        </footer>
 </body>
 
 <template name="clothe">
-<li class="{{#if checked}}checked{{/if}}">
+<li class="{{#if checked}}checked{{/if}} it">
   <input type="checkbox" checked="{{checked}}" class="toggle-checked">
   <span class="text">{{title}}</span>
   <button class="delete">Remove</button>
