@@ -63,3 +63,6 @@ Meteor.methods({
 
 
 });
+
+Router.route('/', function(){ this.render('Home');});
+ 

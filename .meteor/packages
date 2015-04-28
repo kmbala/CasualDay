@@ -11,3 +11,4 @@ autopublish
 mrt:bootstrap-3
 accounts-ui
 bootstrap3:glyphicons
+iron:router
