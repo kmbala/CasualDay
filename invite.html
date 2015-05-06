@@ -1,6 +1,23 @@
 <template name = "invite">
   {{#if currentUser}}
+  <div class="container">
+
+
   <h1>Here is where you can invite new people to your group</h1>
+  <p>
+    Invite Friends
+  </p>
+  <form class="form-inline">
+<div class="form-group">
+
+  <input type="text" class = "form-control " placeholder="invite">
+</div>
+  <button class = "btn btn-warning" type="button" name="button"> Invite </button>
+</form>
+
+
+</div>
+
   {{else}}
   <h1>HEY! I told you to log in</h1>
   {{/if}}

@@ -1,6 +1,23 @@
 <template name = "group">
   {{#if currentUser}}
+  <div class="container">
+
   <h1>This is the Group page</h1>
+  <p>
+    Search for a group
+  </p>
+  <form class="form-inline" >
+
+
+  <div class="form-group">
+
+    <input type="text" class = "form-control " placeholder="search">
+</div>
+<button class = "btn btn-warning" type="button" name="button"> search </button>
+</form>
+
+</div>
+
   {{else}}
   <h1>HEY! log in</h1>
   {{/if}}
