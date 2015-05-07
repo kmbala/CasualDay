@@ -27,6 +27,11 @@ if (Meteor.isClient) {
 
     }
   });
+  Template.invite.events({
+    'click .invite': function(){
+      Meteor.users.find({});
+    }
+  });
   Template.clothe.events({
     'click .toggle-checked': function(){
       Meteor.call("updateClothes",this._id, !this.checked);

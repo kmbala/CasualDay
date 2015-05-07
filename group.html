@@ -1,8 +1,8 @@
 <template name = "group">
   {{#if currentUser}}
-  <div class="container">
-
-  <h1>This is the Group page</h1>
+  <div class="container1">
+<div class="inv">
+  <h1>This is the Groups section</h1>
   <p>
     Search for a group
   </p>
@@ -14,10 +14,23 @@
     <input type="text" class = "form-control " placeholder="search">
 </div>
 <button class = "btn btn-warning" type="button" name="button"> search </button>
+<div class="form-group">
+
+<p>
+  Or Create a group
+</p>
+
+</div>
+<button class = "btn btn-warning" type="button" name="button"> Create </button>
 </form>
 
 </div>
-
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
   {{else}}
   <h1>HEY! log in</h1>
   {{/if}}
