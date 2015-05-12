@@ -1,6 +1,14 @@
 Clothes = new Mongo.Collection('clothes');
 if (Meteor.isClient) {
 
+
+  Players = new Meteor.Collection('players');
+
+    // Extended configuration
+    Players.initEasySearch(['name', 'score'], {
+        'limit' : 20,
+        'use' : 'mongo-db'
+    });
   Template.body.helpers({
       clothes: function(){
         if (Session.get('hideFinished')){
@@ -49,6 +57,13 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
+    Players = new Meteor.Collection('players');
+
+  // Extended configuration
+  Players.initEasySearch(['name', 'score'], {
+      'limit' : 20,
+      'use' : 'mongo-db'
+  });
   });
 }
 

@@ -10,12 +10,32 @@
   <form class="form-inline">
 <div class="form-group">
 
-  <input type="text" class = "form-control " placeholder="invite">
+  {{> esInput index="players" placeholder="Search..." }}
 </div>
   <button class = "btn btn-warning invite" type="button" name="button"> Invite </button>
 </form>
+<!--{{> esInput index="players" placeholder="Search..." }}-->
 
+<ul>
+    {{#esEach index="players"}}
+        <li>Name of the player: {{name}} ({{score}})</li>
+    {{/esEach}}
+</ul>
+
+{{> esLoadMoreButton index="players"}}
+
+{{#ifEsHasNoResults index="players"}}
+    <div class="no-results">No results found!</div>
+{{/ifEsHasNoResults}}
+
+{{#ifEsIsSearching index="players"}}
+        <div>Loading...</div>
+{{/ifEsIsSearching}}
 </div>
+
+
+
+
 </div>
 <br />
 <br />
