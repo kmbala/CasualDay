@@ -22,13 +22,13 @@
     {{/esEach}}
 </ul>
 
-{{> esLoadMoreButton index="players"}}
+{{> esLoadMoreButton index="users"}}
 
-{{#ifEsHasNoResults index="players"}}
+{{#ifEsHasNoResults index="users"}}
     <div class="no-results">No results found!</div>
 {{/ifEsHasNoResults}}
 
-{{#ifEsIsSearching index="players"}}
+{{#ifEsIsSearching index="users"}}
         <div>Loading...</div>
 {{/ifEsIsSearching}}
 </div>

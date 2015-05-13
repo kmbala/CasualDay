@@ -2,10 +2,10 @@ Clothes = new Mongo.Collection('clothes');
 if (Meteor.isClient) {
 
 
-  Players = new Meteor.Collection('players');
+  Users = new Meteor.Collection('user');
 
     // Extended configuration
-    Players.initEasySearch(['name', 'score'], {
+    Users.initEasySearch(['name', 'score'], {
         'limit' : 20,
         'use' : 'mongo-db'
     });
@@ -57,10 +57,10 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
-    Players = new Meteor.Collection('players');
+    Users = new Meteor.Collection('users');
 
   // Extended configuration
-  Players.initEasySearch(['name', 'score'], {
+  Users.initEasySearch(['name', 'score'], {
       'limit' : 20,
       'use' : 'mongo-db'
   });
