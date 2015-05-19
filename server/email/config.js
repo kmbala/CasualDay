@@ -16,6 +16,22 @@ Meteor.startup(function() {
         text: message,
         html: Handlebars.templates['contactEmail']({siteURL: Meteor.absoluteUrl(), fromName: name, fromEmail: email, message: message})
       });
+    },
+    'saveProject': function(project){
+      check(project.name, String);
+      project.userId = Meteor.userId();
+      project.dateentered = new Date();
+      project.lastupdate = new Date();
+      if(!project.datedue){
+
+        project.datedue = new Date();
+      }
+      if(!project.customer){
+
+        project.customer = Customers.findOne({})._id;
+      }
+      project.invited = [];
+      return Projects.insert(project);
     }
   });
 });
