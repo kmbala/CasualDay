@@ -1,39 +1,33 @@
 <template name="home">
   <div class="template-home">
-    <div class="page-header">
-      <div class="jumbotron">
-        <h1>Welcome to CasualDay</h1>
-        <h2>DressCode for TODAY</h2>
-      </div>
-        <p>
-          Our lawFirm  recommands suits for the day!!!
-          Dress sharp!!!
-        </p>
 
-
-    </div>
     <div class="container">
-      <div class="row">
-        <div class= "col-lg-4">
-          <h2><i class="fa fa-users"></i>Comments</h2>
-          <p>
-            Invite people to rate.
-          </p>
+      <div class="jumbotron">
+        <h1>Casual Day</h1>
+        <p class ="lead">Collaberative clothing</p>
+        <p><a href="{{pathFor 'dashboard'}}" class="btn btn-lg btn-success">My clothes</a></p>
       </div>
-        <div class= "col-lg-4">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2><i class="fa fa-users"></i>Groups</h2>
+          <p>
+            Create groups and invite other users so they can see you clothing descriptions
+          </p>
+        </div>
+        <div class="col-lg-4">
           <h2><i class="fa fa-twitch"></i>Comments</h2>
           <p>
-            comments
+            make comments to group sugestions
           </p>
-      </div>
-      <div class="col-lg-4">
-        <h2><i class="fa fa-inbox"></i>Messages</h2>
-        <p>
-          messsages
-        </p>
-      </div>
+        </div>
+        <div class="col-lg-4">
+          <h2><i class="fa fa-inbox"></i>Discriptions</h2>
+          <p>
+            Any clothing you suggest for your group can be saved
+          </p>
 
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </template>

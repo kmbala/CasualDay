@@ -13,3 +13,7 @@ Meteor.publishComposite("items", function() {
     // ]
   }
 });
+Meteor.publish('projects', function(){
+  return Projects.find({});
+
+})
