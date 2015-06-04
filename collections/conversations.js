@@ -1,5 +1,5 @@
 Conversations = new Meteor.Collection("conversations");
-Conversations.allow({
+Conversations.allow({ 
   insert: function(){
     return true;
   },

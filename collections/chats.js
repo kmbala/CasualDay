@@ -1,5 +1,5 @@
 Chats = new Meteor.Collection("chats");
-Chats.allow({
+Chats.allow({ 
   insert: function(){
     return true;
   },

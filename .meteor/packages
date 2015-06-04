@@ -4,21 +4,29 @@
 # but you can also edit it by hand.
 
 meteor-platform
+coffeescript
 less
+accounts-ui
 accounts-password
-useraccounts:bootstrap
 alanning:roles
+iron:router
 zimme:iron-router-active
+manuelschoebel:ms-seo
 cmather:handlebars-server@0.2.0
+joshowens:accounts-entry
+joshowens:simple-form
+meteorhacks:zones
 dburles:collection-helpers
 reywood:publish-composite
-momentjs:moment
+mrt:moment
+mrt:jquery-ui
 mrt:underscore-string-latest
 matb33:collection-hooks
+fuatsengul:iron-router-auth
 dburles:factory
 anti:fake
 cunneen:mailgun
-iron:router@1.0.0
-yasinuslu:blaze-meta
-aldeed:collection2
-aldeed:autoform
+cfs:standard-packages
+jquery
+mrt:fullcalendar
+cfs:filesystem

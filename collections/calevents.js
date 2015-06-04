@@ -1,5 +1,5 @@
 Calevents = new Meteor.Collection("calevents");
-Calevents.allow({
+Calevents.allow({ 
   insert: function(){
     return true;
   },

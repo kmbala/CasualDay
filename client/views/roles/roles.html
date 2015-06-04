@@ -1,0 +1,41 @@
+<template name="roles">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Role Management (User must have profile)</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <th>
+            User Name
+          </th>
+          <th>View Projects</th>
+          <th>Edit Projects</th>
+          <th>View Members</th>
+          <th>Edit Members</th>
+        </thead>
+        <tbody>
+          {{#each userList}}
+          {{#if profile.firstName}}
+            {{>role}}
+            {{/if}}
+          {{/each}}
+        </tbody>
+
+      </table>
+    </div>
+    <div class="panel-footer">
+
+    </div>
+  </div>
+</template>
+<template name="role">
+  <tr>
+    <td>{{#if profile.firstName}}{{profile.firstName}} {{profile.lastName}} {{else}} {{username}}{{/if}}</td>
+    <td><input checked="{{checkRole _id 'view-projects'}}" type="checkbox" id="viewprojects" value=""></td>
+    <td><input checked="{{checkRole _id 'edit-projects'}}"  type="checkbox" id="editprojects" value=""></td>
+    <td><input checked="{{checkRole _id 'view-members'}}"  type="checkbox" id="viewmembers" value=""></td>
+    <td><input checked="{{checkRole _id 'edit-members'}}"  type="checkbox" id="editmembers" value=""></td>
+  </tr>
+
+</template>

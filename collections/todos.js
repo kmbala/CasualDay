@@ -1,5 +1,5 @@
 Todos = new Meteor.Collection("todos");
-Todos.allow({
+Todos.allow({ 
   insert: function(){
     return true;
   },

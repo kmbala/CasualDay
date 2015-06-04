@@ -1,0 +1,71 @@
+<template name="members">
+  <ol class="breadcrumb shadowed">
+    <li>
+      <a href="{{pathFor 'home'}}">
+        <i class="fa fa-tachometer"></i> Home
+      </a></li>
+      <li class="active">
+        <i class="fa fa-university"></i> Members
+      </li>
+    </ol>
+    <div class="col-md-12">
+      <p>
+        <input class="membername noborder biginput" type="text"  placeholder="Add A Member">
+      </p>
+      <hr/>
+      <h5 class="push-bottom">Members listed by
+        <a class="sortMemberToggle" href="#">name</a>
+      </h5>
+      {{#each members}}
+      {{>member}}
+      {{/each}}
+    </div>
+  </template>
+  <template name="member">
+    <div class="col-md-3">
+      <div class="shadowed panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <p class="pull-right"><i class="fa fa-lg fa-trash delmember"></i></p>
+            {{#if editingMembername}}
+            <div class="row">
+              <div class="form-group">
+                <h3>
+                  <input style="width:200px;margin-left:10px;"  type="text" class="form-control name noborder largetype" id="name" placeholder="Member Name" value="{{name}}">
+                </h3>
+              </div>
+            </div>
+            {{else}}
+            <p class="editMemberName"><h3> <a href="#">{{name}}</a></h3></p>
+            {{/if}}
+          </h3>
+        </div>
+        <div class="panel-body ">
+          {{#if editingMemberphone}}
+          <div class="row">
+            <div class="form-group">
+              <input  style="width:200px;margin-left:10px;"  type="text" class="noborder form-control largetype phone" id="phone"
+              placeholder="Enter Phone Number" value="{{formatphone phone}}"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editMemberPhone"><small><span class="text-muted">phone:</span>
+            <span> {{formatphone phone}}</span></small>
+          </p>
+          {{/if}}
+          {{#if editingMembercontact}}
+          <div class="row">
+            <div class="form-group">
+              <input style="width:230px;margin-left:10px;"   type="text" class="noborder largetype form-control contact" id="contact"
+              placeholder="Enter Contact Name" value="{{contact}}"><br/>
+            </div>
+          </div>
+          {{else}}
+          <p class="editMemberContact"><small><span class="text-muted ">contact:</span>
+            <span> {{contact}}</span></small>
+          </p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </template>

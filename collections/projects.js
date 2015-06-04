@@ -1,5 +1,5 @@
 Projects = new Meteor.Collection("projects");
-Projects.allow({
+Projects.allow({ 
   insert: function(){
     return true;
   },

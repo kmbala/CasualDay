@@ -1,0 +1,49 @@
+<template name="archives">
+  <div class="panel panel-default">
+    <div class="page-header">
+      <h1>&nbsp; Archive <small>List</small></h1>
+    </div>
+    <div class="panel-body">
+      <table class="table table-bordered table-striped table-condensed">
+        <thead>
+          <th>Type: </th>
+          <th>Date: </th>
+          <th>Content: </th>
+          <th>UnArchive: </th>
+        </thead>
+        <tbody>
+          {{#each conversations}}
+          <tr>
+            <td>Conversation</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{summarize note}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveConversation">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+          {{#each todos}}
+          <tr>
+            <td>To Do Item</td>
+            <td>{{formatdate dateadded}}</td>
+            <td>{{summarize note}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveTodo">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+          {{#each projects}}
+          <tr>
+            <td>Project</td>
+            <td>{{formatdate dateentered}}</td>
+            <td>{{summarize note}}</td>
+            <td><button class="btn btn-default btn-xs unarchiveProject">
+              <i class="fa fa-minus-square-o"></i> UnArchive</button>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
