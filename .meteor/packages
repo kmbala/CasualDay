@@ -30,3 +30,6 @@ cfs:standard-packages
 jquery
 mrt:fullcalendar
 cfs:filesystem
+cfs:gridfs
+cfs:s3
+cfs:dropbox
