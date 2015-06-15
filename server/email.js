@@ -1,7 +1,7 @@
 Meteor.startup(function() {
   if (Meteor.users.find().fetch().length === 0) {
     var users = [
-  {name:"Member Service",email:"cs@home.com",roles:['view-projects','view-members']},
+  {name:"Customer Service",email:"cs@home.com",roles:['view-projects','view-customers']},
 {name:"Admin User",email:"geomck1967@gmail.com",roles:['admin']}
 ];
 
@@ -17,11 +17,11 @@ _.each(users, function (userData) {
 });
 }
   Meteor.Mailgun.config({
-    username: 'postmaster@domain.com',
-    password: 'password-goes-here'
+    username: 'tarrellrodrigues@gmail.com',
+    password: ''
   });
-  if(Members.find().count() < 1){
-    return Members.insert({name:'House Account'});
+  if(Customers.find().count() < 1){
+    return Customers.insert({name:'House Account'});
   }
   Meteor.methods({
     'sendContactEmail': function(name, email, message) {
@@ -44,24 +44,44 @@ _.each(users, function (userData) {
       if(!project.datedue){
         project.datedue = new Date();
       }
-      if(!project.member){
-        project.member = Members.findOne({})._id;
+      if(!project.customer){
+        project.customer = Customers.findOne({})._id;
       }
       project.invited = [];
       return Projects.insert(project);
     },
+
     'removeProject':function(id){
 
       return Projects.remove({_id:id});
+    },
+    'saveRequest':function(request){
+
+      check(request.name,String);
+      request.userId = Meteor.userId();
+      request.dateentered = new Date();
+      request.lastupdate = new Date();
+      if(!request.datedue){
+        request.datedue = new Date();
+      }
+      if(!request.customer){
+        request.customer = Customers.findOne({})._id;
+      }
+      request.invited = [];
+      return Requests.insert(request);
+    },
+    'removeRequest':function(id){
+
+      return Requests.remove({_id:id});
     },
     'updateProjectName': function (id, name) {
 
       return Projects.update({_id: id}, {$set: {name: name}});
     },
-    'updateProjectMember': function (project, id) {
+    'updateProjectCustomer': function (project, id) {
       return Projects.update({_id: project}, {
         $set: {
-          member: id
+          customer: id
         }
       });
     },
@@ -72,20 +92,20 @@ _.each(users, function (userData) {
         }
       });
     },
-    'addMember': function (name) {
-      return Members.insert({name: name});
+    'addCustomer': function (name) {
+      return Customers.insert({name: name});
     },
-    'updateMemberName': function (id, name) {
-      return Members.update({_id: id}, {$set: {name: name}});
+    'updateCustomerName': function (id, name) {
+      return Customers.update({_id: id}, {$set: {name: name}});
     },
-    'updateMemberPhone': function (id, phone) {
-      return Members.update({_id: id}, {$set: {phone: phone}});
+    'updateCustomerPhone': function (id, phone) {
+      return Customers.update({_id: id}, {$set: {phone: phone}});
     },
-    'updateMemberContact': function (id, contact) {
-      return Members.update({_id: id}, {$set: {contact: contact}});
+    'updateCustomerContact': function (id, contact) {
+      return Customers.update({_id: id}, {$set: {contact: contact}});
     },
-    'removeMember': function (id) {
-      return Members.remove({_id: id});
+    'removeCustomer': function (id) {
+      return Customers.remove({_id: id});
     },
     'addCalEvent': function (calevent) {
       if (!calevent.type) {

@@ -4,21 +4,62 @@ Router.map(function() {
     path: '/',
     layoutTemplate:'nosidebar'
   });
-  this.route('members', {
-    path: '/members',
+  this.route('req', {
+    path: '/req',
+    layoutTemplate:'nosidebar',
+    loginRequired: 'entrySignIn',
+    waitOn:function(){
+      return Meteor.subscribe('requests',Meteor.userId());
+    },
+    data:{
+    'requests': function(){
+      return Requests.find();
+    }
+  }
+  });
+
+  this.route('requestView',{
+    path:'/requests/:id',
+    layoutTemplate:'nosidebar',
+    loginRequired:'entrySignIn',
+    waitOn:function(){
+      Meteor.subscribe('customers');
+      Meteor.subscribe('conversations',this.params.id);
+      Meteor.subscribe('todos',this.params.id);
+      Meteor.subscribe('calevents',this.params.id);
+      Meteor.subscribe('uploads',this.params.id);
+      Meteor.subscribe('directory');
+      Meteor.subscribe('chats');
+
+      return Meteor.subscribe('requests');
+    },
+    data:function(){
+      Session.set('active_request',this.params.id);
+      return Requests.findOne({_id:this.params.id});
+    },
+    onAfterAction:function(){
+      SEO.set({
+        title:'Request View | ' + SEO.settings.title
+      })
+    }
+  });
+
+  this.route('customers', {
+    path: '/customers',
     layoutTemplate:'mainLayout',
     loginRequired: 'entrySignIn',
     waitOn:function(){
-      return Meteor.subscribe('members');
+      return Meteor.subscribe('customers');
     },
     data:{
-      'members':function(){
-        return Members.find({});
+      'customers':function(){
+        return Customers.find({});
       }
-    },
+      },
+
     onAfterAction: function() {
       SEO.set({
-        title: 'Members | ' + SEO.settings.title
+        title: 'Customers | ' + SEO.settings.title
       });
     }
   });
@@ -44,7 +85,7 @@ Router.map(function() {
     layoutTemplate:'mainLayout',
     loginRequired: 'entrySignIn',
     waitOn:function(){
-      Meteor.subscribe('members');
+      Meteor.subscribe('customers');
       Meteor.subscribe('chats');
       return Meteor.subscribe('projects',Meteor.userId());
     },
@@ -64,7 +105,7 @@ Router.map(function() {
     layoutTemplate:'mainLayout',
     loginRequired:'entrySignIn',
     waitOn:function(){
-      Meteor.subscribe('members');
+      Meteor.subscribe('customers');
       Meteor.subscribe('conversations',this.params.id);
       Meteor.subscribe('todos',this.params.id);
       Meteor.subscribe('calevents',this.params.id);
