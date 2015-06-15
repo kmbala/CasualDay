@@ -1,0 +1,123 @@
+<template name="view">
+  <div class="col-md-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <p class="pull-right">
+            <!-- We need to click this trash can to prompt for deletion -->
+            <i class="fa fa-trash deleteConfirmation"></i>
+          </p>
+          <p>
+            <h5>
+              <a href="/requests/{{_id}}"><h3>{{first}}</h3></a>
+              <br/>  Entered on {{formatdate dateentered}}
+            </h5>
+          </p>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <small>
+          <span>Due for <a href="/customers">{{first}} {{last}}</a></span>
+        </small>
+        <br/>
+        <small>
+          <span> on {{formatdate date}}</span>
+        </small>
+      </div>
+
+    </div>
+  </div>
+</template>
+<template name="req">
+  {{#if requestToDelete}}
+    {{>deleconfirm}}
+  {{/if}}
+  <div class="req">
+    <ol class="breadcrumb">
+      <li><a href="{{pathFor 'home'}}"><i class="fa fa-home"></i> Home</a></li>
+      <li class="active"><i class="fa fa-gear"></i> Event Request</li>
+    </ol>
+    <div class="page-header">
+      <!-- We added css to make this input look cloaked -->
+    </div>
+    <div class="col-md-8">
+    <form>
+      <div class="form-group">
+      <ul>
+      <ul>
+        First Name
+          <input type="text" class="form-control" name="firstName">
+      </ul>
+      <ul>
+        Last Name
+        <input type="text" class="form-control" name="lastName" value="">
+      </ul>
+        <ul>
+          Date of event:<br>
+          <div class="input-group date"  >
+
+          <input type="text"  class="form-control" name="date">
+
+          <span class="input-group-addon" ><i class="fa fa-calendar-o fa-fw"></i></span>
+
+      </div>
+        </ul>
+        <ul>
+          Time of event:<br>
+          <div class="input-group"  >
+          <input type="text" class="form-control" name="time">
+          <span class="input-group-addon" ><i class="fa fa-clock-o fa-fw"></i></span>
+        </div>
+        </ul>
+        <ul>
+          Table and Chairs required
+    at location?<br>
+    <div class="radio">
+ <label>
+   <input type="radio" name="require" value="Yes"> Yes
+ </label>
+
+        <label>
+          <input type="radio" name="require" value="No"> No
+        </label>
+      </div>
+        </ul>
+
+        <ul>
+          Number of Tables requested:<br>
+
+          <input type="text" class="form-control" name="table">
+
+        </ul><br>
+
+        <ul>
+          <button type="button" class="btn btn-sm btn-default tableCheck" name="tableCheck" data-toggle="popover" title="Chairs Available" data-content="there are {{tables}} chairs">Check Chairs available</button><br>
+          Number of chairs requested:<br>
+
+          <input type="text" class="form-control" name="chair">
+        </ul>
+
+
+        <ul>
+          Person to contact regarding setup:<br>
+          <input type="text" class="form-control" name="email" placeholder="Email">
+        </ul>
+        <ul>
+          <button type="submit" class="btn btn-default" value="Add Request">Submit</button>
+          <!--input type="submit" value="Register"-->
+        </ul>
+      </ul>
+    </div>
+    </form>
+    </div>
+  </div>
+  <h5> Your Event Requests <a class="sortToggle" href="#">name</a></h5>
+  <div>
+    {{#each requests}}
+      {{>view}}
+    {{else}}
+        <h4>No Requests Found !</h4>
+    {{/each}}
+  </div>
+
+</template>
