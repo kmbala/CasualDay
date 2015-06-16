@@ -1,7 +1,7 @@
 Meteor.startup(function() {
   if (Meteor.users.find().fetch().length === 0) {
     var users = [
-  {name:"Customer Service",email:"cs@home.com",roles:['view-projects','view-customers']},
+  {name:"Customer Service",email:"cs@home.com",roles:['view-projects','view-Members']},
 {name:"Admin User",email:"geomck1967@gmail.com",roles:['admin']}
 ];
 
@@ -20,8 +20,8 @@ _.each(users, function (userData) {
     username: 'tarrellrodrigues@gmail.com',
     password: ''
   });
-  if(Customers.find().count() < 1){
-    return Customers.insert({name:'House Account'});
+  if(Members.find().count() < 1){
+    return Members.insert({name:'House Account'});
   }
   Meteor.methods({
     'sendContactEmail': function(name, email, message) {
@@ -45,7 +45,7 @@ _.each(users, function (userData) {
         project.datedue = new Date();
       }
       if(!project.customer){
-        project.customer = Customers.findOne({})._id;
+        project.customer = Members.findOne({})._id;
       }
       project.invited = [];
       return Projects.insert(project);
@@ -65,7 +65,7 @@ _.each(users, function (userData) {
         request.datedue = new Date();
       }
       if(!request.customer){
-        request.customer = Customers.findOne({})._id;
+        request.customer = Members.findOne({})._id;
       }
       request.invited = [];
       return Requests.insert(request);
@@ -93,19 +93,19 @@ _.each(users, function (userData) {
       });
     },
     'addCustomer': function (name) {
-      return Customers.insert({name: name});
+      return Members.insert({name: name});
     },
     'updateCustomerName': function (id, name) {
-      return Customers.update({_id: id}, {$set: {name: name}});
+      return Members.update({_id: id}, {$set: {name: name}});
     },
     'updateCustomerPhone': function (id, phone) {
-      return Customers.update({_id: id}, {$set: {phone: phone}});
+      return Members.update({_id: id}, {$set: {phone: phone}});
     },
     'updateCustomerContact': function (id, contact) {
-      return Customers.update({_id: id}, {$set: {contact: contact}});
+      return Members.update({_id: id}, {$set: {contact: contact}});
     },
     'removeCustomer': function (id) {
-      return Customers.remove({_id: id});
+      return Members.remove({_id: id});
     },
     'addCalEvent': function (calevent) {
       if (!calevent.type) {
