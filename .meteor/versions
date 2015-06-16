@@ -37,6 +37,7 @@ coffeescript@1.0.6
 cunneen:mailgun@0.9.1
 dburles:collection-helpers@1.0.3
 dburles:factory@0.3.10
+dburles:mongo-collection-instances@0.2.6
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
@@ -45,6 +46,7 @@ fastclick@1.0.3
 fuatsengul:iron-router-auth@1.0.7
 geojson-utils@1.0.3
 handlebars@1.0.3
+houston:admin@2.0.3
 html-tools@1.0.4
 htmljs@1.0.4
 http@1.1.0
@@ -102,6 +104,7 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 srp@1.0.3
 templating@1.1.1
+tmeasday:paginated-subscription@0.2.4
 tracker@1.0.7
 ui@1.0.6
 underscore@1.0.3

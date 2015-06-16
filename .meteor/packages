@@ -34,3 +34,4 @@ cfs:gridfs
 cfs:s3
 cfs:dropbox
 rajit:bootstrap3-datepicker
+houston:admin

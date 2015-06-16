@@ -39,20 +39,17 @@ Template.req.events({
     event.preventDefault();
     var first = event.target.firstName.value;
     var last = event.target.lastName.value;
+    var Event = event.target.Event.value;
     var date = event.target.date.value;
     var time = event.target.time.value;
-    var tChair = event.target.require.value;
-    var numTable = event.target.table.value
-    var numChair = event.target.chair.value;
+
     var email = event.target.email.value;
     Requests.insert({
       first: first,
       last: last,
       date: date,
       time: time,
-      tChair: tChair,
-      numTable: numTable,
-      numChair: numChair,
+      Event: Event,
       email: email
 
 
@@ -62,8 +59,7 @@ Template.req.events({
     event.target.date.value = "";
     event.target.time.value="";
     event.target.require.value="";
-    event.target.table.value="";
-    event.target.chair.value="";
+    event.target.Event.value = "";
     event.target.email.value="";
     return false;
     console.log("got it");
