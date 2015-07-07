@@ -75,3 +75,14 @@ Template.req.events({
     return Session.set('requestToDelete',null);
   }
 });
+Template.requestView.helpers({
+  editing_calevent:function(){
+    return Session.get('editing_calevent');
+  },
+  adding_conversation:function(){
+    return Session.get('adding_conversation');
+  },
+  adding_todo:function(){
+    return Session.get('adding_todo');
+  }
+})

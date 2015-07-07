@@ -1,6 +1,6 @@
-//Uploads = new FS.Collection('uploads',
-//{stores:[new FS.Store.FileSystem('uploads',{path:'~/uploads'})]});
-/*Uploads.allow({
+Uploads = new FS.Collection('uploads',
+{stores:[new FS.Store.FileSystem('uploads',{path:'/uploads'})]});
+Uploads.allow({
   insert:function(){
     return true;
   },
@@ -14,4 +14,3 @@
     return true;
   }
 })
-*/

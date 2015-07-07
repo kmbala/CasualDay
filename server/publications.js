@@ -16,9 +16,9 @@ Meteor.publishComposite("items", function() {
 Meteor.publish('projects',function(userId){
       return Projects.find({$or:[{invited:this.userId},{userId:this.userId}]});
 });
-Meteor.publish('customers',function(){
-    return Customers.find();
-});
+// Meteor.publish('customers',function(){
+//     return Customers.find();
+// });
 Meteor.publish('requests',function(userId){
     return Requests.find();
 });
@@ -31,8 +31,8 @@ Meteor.publish('conversations',function(project){
 Meteor.publish('todos',function(project){
   return Todos.find({project:project});
 });
-Meteor.publish('uploads',function(project){
-  return Uploads.find({project:project});
+ Meteor.publish('uploads',function(project){
+   return Uploads.find({project:project});
 });
 Meteor.publish('directory',function(){
   return Meteor.users.find({},{});

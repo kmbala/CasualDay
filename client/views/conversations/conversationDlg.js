@@ -5,7 +5,7 @@ Template.conversationDlg.events({
     conversation.username = Meteor.user().username;
     conversation.note = text;
     conversation.dateadded = new Date();
-    conversation.project = Session.get('active_project');
+    conversation.project = Session.get('active_request');
     conversation.owner = Meteor.userId();
     Meteor.call('addConversation',conversation);
     Session.set('adding_conversation',false);

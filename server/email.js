@@ -160,12 +160,12 @@ _.each(users, function (userData) {
       return Todos.insert(todo);
     },
     'inviteUser':function(projectid,userId){
-      var project = Projects.findOne({_id:projectid});
-      if(!project || project.userId !== this.userId){
+      var request = Requests.findOne({_id:requestid});
+      if(!request || request.userId !== this.userId){
         throw new Meteor.Error(404,"No Such Project !");
       }
-      if(userId !== project.userId && !_.contains(project.invited,userId)){
-        Projects.update(projectid,{$addToSet:{invited:userId}});
+      if(userId !== request.userId && !_.contains(request.invited,userId)){
+        Requests.update(requestid,{$addToSet:{invited:userId}});
       }
     },
     'removeInvite':function(projectid,userId){

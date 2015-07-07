@@ -13,20 +13,20 @@
       </span>
       {{#if editing_requestcustomer}}
       <select style="width:190px" class="form-control customer input" name="customer" id="customer">
-        <option value="">Select A Customer</option>
+        <option value="">Select A Memeber</option>
         {{#each customers}}
         <option selected="{{isSelected ..}}" value="{{_id}}">{{name}}</option>
         {{/each}}
       </select>
       {{else}}
-      <span><a class="requestCustomerEdit" href="#">{{#if customer.name}}{{customer.name}}{{else}}Select a Customer{{/if}}</a></span>
+      <span><a class="requestCustomerEdit" href="#">{{#if customer.name}}{{customer.name}}{{else}}{{/if}}</a></span>
       {{/if}}
       {{#if editing_datedue}}
       <input style="width:150px;margin-left:20px;font-size:10pt;" type="text"
       class="noborder form-control dateDue" id="dateDue"
       placeholder="Date Due" value="{{datedue}}">
       {{else}}
-      <span> Due on <a class="requestDateDue" href="#">{{formatdate datedue}}</a></span>
+      <span> Event on <a class="requestDateDue" href="#">{{formatdate date}}</a></span>
       {{/if}}
     </h2>
   </div>

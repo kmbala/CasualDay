@@ -1,5 +1,5 @@
 Template.calendar.rendered = function(){
-  $calendar = $('#projectCalendar');
+  $calendar = $('#requestCalendar');
   var calendar = $calendar.fullCalendar({
 
     dayClick:function(date,allDay,jsEvent,view){
@@ -8,7 +8,7 @@ Template.calendar.rendered = function(){
       ce.end = ce.start;
       ce.color = 'red';
       ce.className = 'todo';
-      ce.project = Session.get('active_project');
+      ce.project = Session.get('active_request');
       ce.title = 'New Milestone';
       ce.owner = Meteor.userId;
       Meteor.call('addCalEvent',ce);
@@ -29,7 +29,7 @@ Template.calendar.rendered = function(){
       Meteor.call('updateEventTimes',reqEvent);
     },
     events:function(start,end,callback){
-      var calEvents = Calevents.find({project:Session.get('active_project')},{reactive:false}).fetch();
+      var calEvents = Calevents.find({project:Session.get('active_request')},{reactive:false}).fetch();
       console.log(calEvents);
       callback(calEvents);
     },
@@ -83,7 +83,7 @@ Template.caltask.events({
       calevent._id = Session.get('editing_calevent');
       calevent.title = name;
       calevent.type = type;
-      calevent.project = Session.get('active_project');
+      calevent.project = Session.get('active_request');
       Meteor.call('updateCalEvent',calevent);
     }
     Session.set('editing_calevent',null);

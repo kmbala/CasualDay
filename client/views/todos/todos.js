@@ -1,7 +1,7 @@
 
 Template.todos.helpers({
   todos: function(){
-     return Todos.find({project:Session.get('active_project'),archived:{$ne:true}});
+     return Todos.find({project:Session.get('active_request'),archived:{$ne:true}});
   }
 });
 
@@ -20,7 +20,7 @@ Template.todoDlg.events({
   'click .saveTodo':function(evt,tmpl){
     var todo = {};
     todo.note = tmpl.find('.todoitem').value;
-    todo.project = Session.get('active_project');
+    todo.project = Session.get('active_request');
     Meteor.call('addTodo',todo);
     Session.set('adding_todo',false);
   },
